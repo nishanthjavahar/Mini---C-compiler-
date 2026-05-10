@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Mini Compiler Output</title>
+
+<style>
+
+body {
+
+    background: #1e1e1e;
+
+    color: white;
+
+    font-family: Arial;
+
+    margin: 40px;
+}
+
+.section {
+
+    background: #2d2d2d;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+h1 {
+
+    color: #4CAF50;
+
+    margin: 0;
+
+    font-size: 42px;
+}
+.container {
+
+    width: 95%;
+
+    margin: auto;
+
+    padding-top: 20px;
+}
+
+img {
+
+    border-radius: 10px;
+
+    border: 2px solid white;
+}
+
+pre {
+
+    background: #111;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    overflow-x: auto;
+}
+ul {
+
+    list-style: none;
+
+    padding-left: 0;
+}
+
+li {
+
+    margin-bottom: 8px;
+}
+.top-grid {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+}
+.info-card {
+
+    background: #111;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #333;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+    width: 300px;
+
+    min-height: 110px;
+}
+
+.info-card h3 {
+
+    color: #4CAF50;
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+.info-card p {
+
+    margin: 4px 0;
+
+    line-height: 1.4;
+
+    font-size: 12px;
+}
+.university-name {
+
+    font-size: 18px;
+
+    color: #ccc;
+
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+}
+.header {
+
+    background: #2a2a2a;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.moving-text {
+
+    color: #ccdac8;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    display: block;
+
+    width: 100%;
+
+    animation: moveText 12s linear infinite;
+
+    font-size: 22px;
+
+    margin-top: 10px;
+}
+
+@keyframes moveText {
+
+    0% {
+
+        transform: translateX(100%);
+    }
+
+    100% {
+
+        transform: translateX(-100%);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="section">
+
+<h1>Mini-C Compiler</h1>
+
+<p>
+Compiler Frontend using Flex, Bison and C
+</p>
+<h3 class="university-name">
+M.S. Ramaiah University of Applied Sciences
+</h3>
+<h2 class="moving-text">
+    Assignment Demo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Assignment Demo
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Assignment Demo 
+    
+</h2>
+<div class="top-grid">
+
+
+
+<div class="info-card">
+
+<h3>Course Details</h3>
+
+<p>
+course code: CSC301A </p>
+<p>Course Leader: Dr. Hari Krishna S. M
+</p>
+
+<p>
+6th Semester
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h3>Team Details</h3>
+
+<p>
+Sree Nishanth J - 23ETCS002133
+</p>
+
+<p>
+Srujana Elicherla - 23ETCS002138
+</p>
+
+<p>
+Girish Daruru - 23ETCS002179
+</p>
+<p>Jaswanth siva sai - 23ETCS00217</p>
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>AST</h2>
+
+<img id="astImage" src="ast.png" width="400">
+
+<p id="astError" style="color:red; display:none;">
+AST not generated due to compilation errors.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>TAC</h2>
+
+<pre id="tacOutput"></pre>
+
+</div>
+
+<div class="section">
+
+<h2>Errors</h2>
+
+<pre id="errorOutput"></pre>
+
+</div>
+
+<script>
+
+fetch('error.txt')
+.then(response => response.text())
+.then(data => {
+
+    if (data.trim() !== "") {
+
+        document.getElementById("errorOutput").innerText = data;
+
+        document.getElementById("astImage").style.display = "none";
+
+        document.getElementById("astError").style.display = "block";
+
+        document.getElementById("tacOutput").innerText =
+            "TAC not generated due to compilation failure.";
+    }
+    else {
+
+        document.getElementById("errorOutput").innerText =
+            "No errors found.";
+    }
+})
+.catch((err) => {
+
+    document.getElementById("errorOutput").innerText =
+        "Could not load error.txt\n\nRun using localhost server.";
+});
+
+fetch('tac.txt')
+
+.then(response => {
+
+    if (!response.ok) {
+
+        throw new Error("No TAC file");
+    }
+
+    return response.text();
+})
+
+.then(data => {
+
+    if (data.trim() !== "") {
+
+        document.getElementById("tacOutput").innerText = data;
+    }
+    else {
+
+        document.getElementById("tacOutput").innerText =
+            "No TAC generated.";
+    }
+})
+
+.catch(() => {
+
+    document.getElementById("tacOutput").innerText =
+        "TAC not generated due to compilation failure.";
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini-C Compiler</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 40px;
+            background: #f4f4f4;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+            font-family: monospace;
+        }
+
+        pre {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>Mini-C Compiler</h1>
+
+<form method="POST">
+
+<textarea name="code">{{ code }}</textarea>
+
+<br><br>
+
+<button type="submit">
+Compile
+</button>
+
+</form>
+
+{% if result %}
+
+<h2>Tokens</h2>
+
+<pre>{{ result.tokens }}</pre>
+
+<h2>Symbol Table</h2>
+
+<pre>{{ result.symbol_table }}</pre>
+
+<h2>TAC</h2>
+
+<pre>{{ result.tac }}</pre>
+
+<h2>Errors</h2>
+
+<pre>{{ result.errors }}</pre>
+
+{% endif %}
+
+</body>
+</html>
