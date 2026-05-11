@@ -30,23 +30,18 @@
 "-"             { return MINUS; }
 "*"             { return MUL; }
 "/"             { return DIV; }
-
 "="             { return ASSIGN; }
-
 ";"             { return SEMICOLON; }
-
 "("             { return LPAREN; }
 ")"             { return RPAREN; }
-
 "{"             { return LBRACE; }
 "}"             { return RBRACE; }
-
 "<"             { return LT; }
 ">"             { return GT; }
-"<="    return LE;
-">="    return GE;
-"=="    return EQ;
-"!="    return NE;
+"<="    {return LE;}
+">="    {return GE;}
+"=="    {return EQ;}
+"!="    {return NE;}
 "["     return LBRACKET;
 "]"     return RBRACKET;
 

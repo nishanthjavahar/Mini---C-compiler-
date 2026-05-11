@@ -17,20 +17,22 @@ ASTNode* createNode(char *label) {
     return node;
 }
 
-void printAST(ASTNode *root, int level) {
+void printAST(ASTNode *node, int level) {
 
-    if (root == NULL)
+    if (node == NULL)
         return;
 
-    for (int i = 0; i < level; i++)
-        printf("    ");
+    for (int i = 0; i < level; i++) {
+        printf("│   ");
+    }
 
-    printf("%s\n", root->value);
+    printf("├── %s\n", node->value);
 
-    printAST(root->left, level + 1);
+    printAST(node->left, level + 1);
+    printAST(node->right, level + 1);
 
-    printAST(root->right, level + 1);
-    printAST(root->next, level);
+    // PRINT NEXT STATEMENT
+    printAST(node->next, level);
 }
 
 void generateDOT(ASTNode *root, FILE *fp) {

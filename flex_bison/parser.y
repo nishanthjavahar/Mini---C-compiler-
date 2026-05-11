@@ -30,28 +30,17 @@ ASTNode *lastNode = NULL;
 
     ASTNode *node;
 }
-
 %token INT FLOAT IF ELSE WHILE PRINT
-
 %token PLUS MINUS MUL DIV ASSIGN
-
 %token LT GT LE GE EQ NE
-
 %token SEMICOLON
-
 %token LPAREN RPAREN
-
 %token LBRACE RBRACE
-
 %token LBRACKET RBRACKET
-
 %token <num> NUMBER
 %token <str> ID
-
 %type <node> expression term factor
-
 %%
-
 program:
     statements
     ;
@@ -60,7 +49,6 @@ statements:
       statements statement
     |
     ;
-
 statement:
       declaration
     | assignment
@@ -70,34 +58,25 @@ statement:
     ;
 
 declaration:
-
       INT ID SEMICOLON
-
         {
             addSymbol($2, "int");
-
             printf(
                 "Declaration: int %s\n",
                 $2
             );
         }
-
     | FLOAT ID SEMICOLON
-
         {
             addSymbol($2, "float");
-
             printf(
                 "Declaration: float %s\n",
                 $2
             );
         }
-
     | INT ID LBRACKET NUMBER RBRACKET SEMICOLON
-
         {
             addSymbol($2, "int_array");
-
             printf(
                 "Array Declaration: int %s[%d]\n",
                 $2,
@@ -105,17 +84,11 @@ declaration:
             );
         }
     ;
-
 assignment:
-
     ID ASSIGN expression SEMICOLON
-
     {
-
         if (!symbolExists($1)) {
-
             FILE *fp = fopen("error.txt", "w");
-
             fprintf(
                 fp,
                 "Semantic Error: Variable '%s' not declared\n",
@@ -416,6 +389,8 @@ remove("error.txt");
     hasError = 1;
 }
 
+    if (!hasError && root != NULL) {
+
     printf(
         "\nAnnotated Syntax Tree:\n\n"
     );
@@ -427,6 +402,7 @@ remove("error.txt");
     generateTAC(root);
 
     printTAC();
+}
 
     FILE *fp = fopen("ast.dot", "w");
 

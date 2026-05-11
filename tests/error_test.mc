@@ -1,15 +1,22 @@
-// ============================================
-// error_test.mc
-// This file has intentional errors to show
-// what the compiler's error messages look like
-// ============================================
+(.venv) admin@MacBookPro flex_bison % ./compiler < ../tests/test_program.mc
+Mini-C Compiler using Flex/Bison
+Declaration: int a
+Assignment Parsed
+Semantic Error: Variable 'b' not declared
 
-int x = 5;
-int x = 10;          // ERROR: redeclaration of x
+Annotated Syntax Tree:
 
-float y = 3.14;
-int z = y;           // ERROR: type mismatch (float -> int)
+├── =
+│   ├── a
+│   ├── 10
 
-print(undeclared);   // ERROR: undeclared variable
+SYMBOL TABLE
+-------------------------
+NAME       TYPE      
+a          int       
 
-int @ = 5;           // ERROR: invalid character @
+THREE ADDRESS CODE
+-------------------------
+a = 10
+
+Compilation Failed Due To Errors

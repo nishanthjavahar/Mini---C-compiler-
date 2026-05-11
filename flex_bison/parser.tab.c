@@ -492,10 +492,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    56,    56,    60,    61,    65,    66,    67,    68,    69,
-      74,    85,    96,   111,   189,   198,   207,   216,   227,   238,
-     249,   260,   271,   282,   293,   304,   313,   324,   335,   344,
-     354,   360
+       0,    45,    45,    49,    50,    53,    54,    55,    56,    57,
+      61,    69,    77,    88,   162,   171,   180,   189,   200,   211,
+     222,   233,   244,   255,   266,   277,   286,   297,   308,   317,
+     327,   333
 };
 #endif
 
@@ -1444,10 +1444,9 @@ yyreduce:
   switch (yyn)
     {
         case 10:
-#line 76 "parser.y"
+#line 62 "parser.y"
     {
             addSymbol((yyvsp[(2) - (3)].str), "int");
-
             printf(
                 "Declaration: int %s\n",
                 (yyvsp[(2) - (3)].str)
@@ -1456,10 +1455,9 @@ yyreduce:
     break;
 
   case 11:
-#line 87 "parser.y"
+#line 70 "parser.y"
     {
             addSymbol((yyvsp[(2) - (3)].str), "float");
-
             printf(
                 "Declaration: float %s\n",
                 (yyvsp[(2) - (3)].str)
@@ -1468,10 +1466,9 @@ yyreduce:
     break;
 
   case 12:
-#line 98 "parser.y"
+#line 78 "parser.y"
     {
             addSymbol((yyvsp[(2) - (6)].str), "int_array");
-
             printf(
                 "Array Declaration: int %s[%d]\n",
                 (yyvsp[(2) - (6)].str),
@@ -1481,13 +1478,10 @@ yyreduce:
     break;
 
   case 13:
-#line 113 "parser.y"
+#line 89 "parser.y"
     {
-
         if (!symbolExists((yyvsp[(1) - (4)].str))) {
-
             FILE *fp = fopen("error.txt", "w");
-
             fprintf(
                 fp,
                 "Semantic Error: Variable '%s' not declared\n",
@@ -1557,28 +1551,28 @@ yyreduce:
     break;
 
   case 14:
-#line 191 "parser.y"
+#line 164 "parser.y"
     {
         printf("Print statement\n");
     ;}
     break;
 
   case 15:
-#line 200 "parser.y"
+#line 173 "parser.y"
     {
         printf("While loop\n");
     ;}
     break;
 
   case 16:
-#line 209 "parser.y"
+#line 182 "parser.y"
     {
         printf("If statement\n");
     ;}
     break;
 
   case 17:
-#line 218 "parser.y"
+#line 191 "parser.y"
     {
             ASTNode *node = createNode("+");
 
@@ -1590,7 +1584,7 @@ yyreduce:
     break;
 
   case 18:
-#line 229 "parser.y"
+#line 202 "parser.y"
     {
             ASTNode *node = createNode("-");
 
@@ -1602,7 +1596,7 @@ yyreduce:
     break;
 
   case 19:
-#line 240 "parser.y"
+#line 213 "parser.y"
     {
             ASTNode *node = createNode("<");
 
@@ -1614,7 +1608,7 @@ yyreduce:
     break;
 
   case 20:
-#line 251 "parser.y"
+#line 224 "parser.y"
     {
             ASTNode *node = createNode(">");
 
@@ -1626,7 +1620,7 @@ yyreduce:
     break;
 
   case 21:
-#line 262 "parser.y"
+#line 235 "parser.y"
     {
             ASTNode *node = createNode("<=");
 
@@ -1638,7 +1632,7 @@ yyreduce:
     break;
 
   case 22:
-#line 273 "parser.y"
+#line 246 "parser.y"
     {
             ASTNode *node = createNode(">=");
 
@@ -1650,7 +1644,7 @@ yyreduce:
     break;
 
   case 23:
-#line 284 "parser.y"
+#line 257 "parser.y"
     {
             ASTNode *node = createNode("==");
 
@@ -1662,7 +1656,7 @@ yyreduce:
     break;
 
   case 24:
-#line 295 "parser.y"
+#line 268 "parser.y"
     {
             ASTNode *node = createNode("!=");
 
@@ -1674,14 +1668,14 @@ yyreduce:
     break;
 
   case 25:
-#line 306 "parser.y"
+#line 279 "parser.y"
     {
             (yyval.node) = (yyvsp[(1) - (1)].node);
         ;}
     break;
 
   case 26:
-#line 315 "parser.y"
+#line 288 "parser.y"
     {
             ASTNode *node = createNode("*");
 
@@ -1693,7 +1687,7 @@ yyreduce:
     break;
 
   case 27:
-#line 326 "parser.y"
+#line 299 "parser.y"
     {
             ASTNode *node = createNode("/");
 
@@ -1705,14 +1699,14 @@ yyreduce:
     break;
 
   case 28:
-#line 337 "parser.y"
+#line 310 "parser.y"
     {
             (yyval.node) = (yyvsp[(1) - (1)].node);
         ;}
     break;
 
   case 29:
-#line 346 "parser.y"
+#line 319 "parser.y"
     {
             char buffer[20];
 
@@ -1723,14 +1717,14 @@ yyreduce:
     break;
 
   case 30:
-#line 356 "parser.y"
+#line 329 "parser.y"
     {
             (yyval.node) = createNode((yyvsp[(1) - (1)].str));
         ;}
     break;
 
   case 31:
-#line 362 "parser.y"
+#line 335 "parser.y"
     {
             (yyval.node) = (yyvsp[(2) - (3)].node);
         ;}
@@ -1738,7 +1732,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1742 "parser.tab.c"
+#line 1736 "parser.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1952,7 +1946,7 @@ yyreturn:
 }
 
 
-#line 367 "parser.y"
+#line 340 "parser.y"
 
 
 void yyerror(const char *s) {
@@ -2005,6 +1999,8 @@ remove("error.txt");
     hasError = 1;
 }
 
+    if (!hasError && root != NULL) {
+
     printf(
         "\nAnnotated Syntax Tree:\n\n"
     );
@@ -2016,6 +2012,7 @@ remove("error.txt");
     generateTAC(root);
 
     printTAC();
+}
 
     FILE *fp = fopen("ast.dot", "w");
 

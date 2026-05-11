@@ -829,83 +829,83 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 34 "lexer.l"
+#line 33 "lexer.l"
 { return ASSIGN; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 36 "lexer.l"
+#line 34 "lexer.l"
 { return SEMICOLON; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 38 "lexer.l"
+#line 35 "lexer.l"
 { return LPAREN; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 39 "lexer.l"
+#line 36 "lexer.l"
 { return RPAREN; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 41 "lexer.l"
+#line 37 "lexer.l"
 { return LBRACE; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 42 "lexer.l"
+#line 38 "lexer.l"
 { return RBRACE; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 44 "lexer.l"
+#line 39 "lexer.l"
 { return LT; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 45 "lexer.l"
+#line 40 "lexer.l"
 { return GT; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 46 "lexer.l"
-return LE;
+#line 41 "lexer.l"
+{return LE;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 47 "lexer.l"
-return GE;
+#line 42 "lexer.l"
+{return GE;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 48 "lexer.l"
-return EQ;
+#line 43 "lexer.l"
+{return EQ;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 49 "lexer.l"
-return NE;
+#line 44 "lexer.l"
+{return NE;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 50 "lexer.l"
+#line 45 "lexer.l"
 return LBRACKET;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 51 "lexer.l"
+#line 46 "lexer.l"
 return RBRACKET;
 	YY_BREAK
 case 27:
 /* rule 27 can match eol */
 YY_RULE_SETUP
-#line 53 "lexer.l"
+#line 48 "lexer.l"
 ;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 55 "lexer.l"
+#line 50 "lexer.l"
 {
 
     FILE *fp = fopen("error.txt", "w");
@@ -926,7 +926,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 73 "lexer.l"
+#line 68 "lexer.l"
 ECHO;
 	YY_BREAK
 #line 932 "lex.yy.c"
@@ -1934,7 +1934,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 73 "lexer.l"
+#line 68 "lexer.l"
 
 
 int yywrap() {
