@@ -1,8 +1,42 @@
-int a;
-int b;
-int sum;
+int age;
+int citizen;
+int eligible;
+int attempts;
 
-a = 5;
-b = 10;
+int history[5];
 
-sum = a + b;
+age = 20;
+
+citizen = 1;
+
+attempts = 0;
+
+eligible = 0;
+
+if (age >= 18) {
+
+    print(age);
+}
+
+if (citizen == 1) {
+
+    print(citizen);
+}
+
+if (age >= 18) {
+
+    eligible = 1;
+
+    print(eligible);
+}
+
+while (attempts < 3) {
+
+    attempts = attempts + 1;
+
+    print(attempts);
+}
+
+eligible = eligible + attempts;
+
+print(eligible);
